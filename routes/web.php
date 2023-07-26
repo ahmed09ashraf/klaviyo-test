@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KlaviyoCatalogController;
 use App\Http\Controllers\KlaviyoProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KlaviyoController;
@@ -21,7 +22,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/create-list', [KlaviyoController::class, 'createList']);
-Route::get('/create-profile', [KlaviyoProfileController::class, 'createProfile']);
 
-Route::get('/products/{id}', 'ProductController@show')->name('product.show');
+Route::get('/create-profile', [KlaviyoProfileController::class, 'createProfile']);
+Route::get('/create-catalog', [KlaviyoCatalogController::class, 'createCatalog']);
+Route::get('/create-list', [KlaviyoController::class, 'createList']);

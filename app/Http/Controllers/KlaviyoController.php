@@ -14,7 +14,7 @@ class KlaviyoController extends Controller
 
         try {
             $response = $client->request('POST', 'https://a.klaviyo.com/api/lists/', [
-                'body' => '{"data":{"type":"list","attributes":{"name":"Newsletter"}}}',
+                'body' => '{"data":{"type":"list","attributes":{"name":"test3"}}}',
                 'headers' => [
                     'Authorization' => 'Klaviyo-API-Key pk_466e48ce9d22d163431ed2a604a4cb6798',
                     'accept' => 'application/json',

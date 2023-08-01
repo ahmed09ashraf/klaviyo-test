@@ -87,15 +87,22 @@
             opacity: 1;
             visibility: visible;
             height:620px ;
-            /* width: 100%; */
             transform: translateY(0);
             transition-delay: 0s, 0s, 0s;
-        ;}
+        }
+
+
+        .search-title {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 0.8px solid #ffb243;
+        }
 
         ul{
         border-right: #ffb243 2px solid;
         width: 100%;
         margin-right: 80px;
+        margin-top: -10px;
         }
         li{
             list-style: none;
@@ -126,7 +133,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 80%;
+            width: 100%;
         }
         .product:hover{
             border-radius: 5%;
@@ -143,6 +150,78 @@
         }
 
 
+
+    @media (max-width: 768px) {
+
+        *{
+            padding:2px ;
+            margin:2px ;
+        }
+
+        .sidebar {
+           text-align: start;
+           font-size: 12px;
+        }
+
+
+        ul{
+
+            border:none ;
+        }
+        li{
+            padding:2px ;
+            margin:2px ;
+        }
+        .search-title{
+            font-size: 14px ;
+            text-align: start;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
+        .dropdown-content{
+            height:auto;
+            text-align: center;
+            border: none;
+            padding: 0px;
+            margin: -10px;
+        }
+
+        .product{
+            width: 100%;
+            font-size: 14px ;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .arrow{
+            display: none;
+        }
+
+        img{
+            /* min-height: 20px;
+            max-height: 30px; */
+            height : 80px ;
+            width: 120px;
+        }
+
+        .book-name {
+            font-size: 13px ;
+            font-weight: bold;
+        }
+
+        .author-name , .price {
+            display:none  ;
+        }
+    
+
+
+}
+
+
     </style>
 
 </head>
@@ -150,7 +229,7 @@
 
 
 </div>
-<div style="width:100%">
+
         <div class="dropdown">
             <div   class="dropbtn"  onclick="myFunction()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -167,23 +246,22 @@
                     <div class="row ">
 
                         <!-- Sidebar content -->
-                        <div class="col-md-3">
+                        <div class="col-md-4 col-sm-12 sidebar">
                             <ul>
-                                <h2>Catalogue</h2>
-                                <li>First</li>
-                                <li>Second</li>
-                                <li>Third</li>
-                                <li>Fourth</li>
-                                <li>Fifth</li>
-                                <li>Sixth</li>
-                                <li>Seventh</li>
+                                <p class="search-title">POPULAR SUGGESTIONS</p3>
+                                <li> <i class="fa fa-search"></i>First</li>
+                                <li><i class="fa fa-search"></i>Second</li>
+                                <li><i class="fa fa-search"></i>Third</li>
+                                <li><i class="fa fa-search"></i>Fourth</li>
+                                <li><i class="fa fa-search"></i>Fifth</li>
                             </ul>
 
                         </div>
 
                         <!-- Products content -->
-                        <div class="col-md-9">
-
+                        
+                        <div class="col-md-8">
+                        <p class="search-title">PRODUCTS</p>
                             <div class="arrow">
                                     <i class="arrow-left">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -201,59 +279,41 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6">
                                     <div class="product-card product">
                                         <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97805/9780571376483.jpg" alt="Demon Copperhead">
-                                        <h5>Demon Copperhead</h5>
-                                        <i>xx</i>
-                                        <b>12 $</b>
+                                        <h5 class="book-name">Demon Copperhead</h5>
+                                        <i class="author-name">xx</i>
+                                        <b class="price">12 $</b>
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6">
                                     <div class="product-card product">
                                         <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97817/9781786892737.jpg" alt="The Midnight Library">
-                                        <h5>The Midnight Library</h5>
-                                        <i>xx</i>
-                                        <b>24 $</b>
+                                        <h5 class="book-name">The Midnight Library</h5>
+                                        <i class="author-name">xx</i>
+                                        <b class="price">24 $</b>
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6">
                                     <div class="product-card product">
                                         <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97808/9780861546732.jpg" alt="The Way I Used to Be">
-                                        <h5>The Way I Used to Be</h5>
-                                        <i>xx</i>
-                                        <b>15 $</b>
+                                        <h5 class="book-name">The Way I Used to Be</h5>
+                                        <i class="author-name">xx</i>
+                                        <b class="price">15 $</b>
                                     </div>
                                 </div>
 
-{{--                                <div class="col-md-4">--}}
-{{--                                    <div class="product-card product">--}}
-{{--                                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97817/9781728205489.jpg" alt="If He Had Been with Me">--}}
-{{--                                        <h5>If He Had Been with Me</h5>--}}
-{{--                                        <i>xx</i>--}}
-{{--                                        <b>14 $</b>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="col-md-4">--}}
-{{--                                    <div class="product-card product">--}}
-{{--                                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97805/9780571365425.jpg" alt="Beautiful World, Where Are You">--}}
-{{--                                        <h5>Beautiful World, Where Are You</h5>--}}
-{{--                                        <i>xx</i>--}}
-{{--                                        <b>15 $</b>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="col-md-4">--}}
-{{--                                    <div class="product-card product">--}}
-{{--                                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97818/9781838770013.jpg" alt="The Beekeeper of Aleppo">--}}
-{{--                                        <h5>The Beekeeper of Aleppo</h5>--}}
-{{--                                        <i>xx</i>--}}
-{{--                                        <b>15 $</b>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="col-md-3">
+                                    <div class="product-card product">
+                                    <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97817/9781728205489.jpg" alt="If He Had Been with Me">
+                                        <h5 class="book-name">If He Had Been with Me</h5>
+                                        <i class="author-name">xx</i>
+                                        <b class="price">14 $</b>
+                                    </div>
+                                </div>
 
                                 </div>
                             </div>
@@ -265,121 +325,8 @@
         </div>
     </div>
 
-        <div class="container">
-            <h1>Products</h1>
-            <div class="row">
-                    <div class="col-md-4 justify-content-around">
-                        <div class="product-card product">
-                            <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97805/9780571376483.jpg" alt="Demon Copperhead">
-                            <h5>Demon Copperhead</h5>
-                            <i>xx</i>
-                            <b>12 $</b>
-                        </div>
-
-                    </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97817/9781786892737.jpg" alt="The Midnight Library">
-                        <h5>The Midnight Library</h5>
-                        <i>xx</i>
-                        <b>24 $</b>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97808/9780861546732.jpg" alt="The Way I Used to Be">
-                        <h5>The Way I Used to Be</h5>
-                        <i>xx</i>
-                        <b>15 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97817/9781728205489.jpg" alt="If He Had Been with Me">
-                        <h5>If He Had Been with Me</h5>
-                        <i>xx</i>
-                        <b>14 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97802/9780241512449.jpg" alt="The Last Devil To Die">
-                        <h5>The Last Devil To Die</h5>
-                        <i>xx</i>
-                        <b>19 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97805/9780571365425.jpg" alt="Beautiful World, Where Are You">
-                        <h5>Beautiful World, Where Are You</h5>
-                        <i>xx</i>
-                        <b>15 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97800/9780008172145.jpg" alt="Eleanor Oliphant is Completely Fine">
-                        <h5>Eleanor Oliphant is Completely Fine</h5>
-                        <i>xx</i>
-                        <b>11 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97813/9781398501874.jpg" alt="Legendborn">
-                        <h5>Legendborn</h5>
-                        <i>xx</i>
-                        <b>13 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97813/9781398515697.jpg" alt="Seven Husbands of Evelyn Hugo">
-                        <h5>Seven Husbands of Evelyn Hugo</h5>
-                        <i>xx</i>
-                        <b>21 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97818/9781838770013.jpg" alt="The Beekeeper of Aleppo">
-                        <h5>The Beekeeper of Aleppo</h5>
-                        <i>xx</i>
-                        <b>15 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97814/9781472154668.jpg" alt="Where the Crawdads Sing">
-                        <h5>Where the Crawdads Sing</h5>
-                        <i>xx</i>
-                        <b>18 $</b>
-                    </div>
-                </div>
-
-                <div class="col-md-4 justify-content-around">
-                    <div class="product-card product">
-                        <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="https://images.awesomebooks.com/images/books/medium/97814/9781408726600.jpg" alt="Verity">
-                        <h5>Verity</h5>
-                        <i>xx</i>
-                        <b>16 $</b>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+     
+       
 
 
         <script>

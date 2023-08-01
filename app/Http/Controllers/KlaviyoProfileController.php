@@ -14,7 +14,10 @@ class KlaviyoProfileController extends Controller
         $client = new Client();
 
         try {$response = $client->request('POST', 'https://a.klaviyo.com/api/profiles/', [
-                    'body' => '{"data":{"type":"profile","attributes":{"properties":{"newKey":"New Value"}}}}',
+                    'body' => '{
+                            "data":{"type":"profile",
+                            "attributes":{
+                            "properties":{"newKey":"New Value"}}}}',
                     'headers' => [
                         'Authorization' => 'Klaviyo-API-Key pk_466e48ce9d22d163431ed2a604a4cb6798',
                         'accept' => 'application/json',

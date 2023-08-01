@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KlaviyoCatalogController;
 use App\Http\Controllers\KlaviyoProfileController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KlaviyoController;
 /*
@@ -26,3 +27,7 @@ Route::get('/', function () {
 Route::get('/create-profile', [KlaviyoProfileController::class, 'createProfile']);
 Route::get('/create-catalog', [KlaviyoCatalogController::class, 'createCatalog']);
 Route::get('/create-list', [KlaviyoController::class, 'createList']);
+
+Route::get('/products',[ProductController::class,'index'])->name('products.index') ;
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');

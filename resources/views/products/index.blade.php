@@ -48,7 +48,7 @@
             padding: 14px 20px 12px 45px;
             border: none;
             border-bottom: 1px solid #ffb243;
-            width:95%;
+            width:98%;
         }
 
         /* The search field when it gets focus/clicked on */
@@ -163,13 +163,18 @@
            font-size: 12px;
         }
 
+        #myInput {
+            margin-bottom: 10px ;
+            padding: 10px;
+        }
+
 
         ul{
 
             border:none ;
         }
         li{
-            padding:2px ;
+            padding:5px ;
             margin:2px ;
         }
         .search-title{
@@ -185,7 +190,7 @@
             text-align: center;
             border: none;
             padding: 0px;
-            margin: -10px;
+            margin: 0px;
         }
 
         .product{

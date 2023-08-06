@@ -1,0 +1,236 @@
+*{
+    padding: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #dddddd;
+    color: grey;
+    padding: 10px;
+    width: 70px;
+    font-size: 16px;
+    border: none;
+    cursor:pointer ;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #e2e8f0 ;
+}
+
+/* ----Search Box---- */
+
+.ais-SearchBox-input{
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    margin-bottom :-30px ;
+    border: none;
+    border-bottom: 1px solid #ffb243;
+    width:100%;
+}
+
+
+/* The search field when it gets focus/clicked on */
+.ais-SearchBox-input:focus {outline: 1.5px solid #ffb243;}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+mark{
+    background: #ffb243;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    /* display: none; */
+    position: absolute;
+    background-color: #f9f9f9;
+    height:100px;
+    width: 100%;
+    border: 1px solid #ddd;
+    z-index: 999;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    overflow:hidden;
+}
+
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    opacity: 1;
+    visibility: visible;
+    height:680px ;
+    transform: translateY(0);
+    transition-delay: 0s, 0s, 0s;
+}
+
+
+.search-title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 0.8px solid #ffb243;
+}
+
+ul{
+border-right: #ffb243 2px solid;
+width: 100%;
+margin-right: 10px;
+margin-top: -10px;
+overflow: hidden;
+}
+
+.ais-Hits{
+    text-align: center;
+    padding: 0px;
+    margin: -5px;
+    margin-top: 10px;
+
+}
+/* ----Products---- */
+#hits {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#hits li {
+    display: inline-block;
+    margin: -20px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.product{
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    margin: 0px;
+}
+
+.product-card {
+    width: 180px; /* Set the desired width */
+    height: 320px; /* Set the desired height */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden; /* Hide any content that exceeds the card size */
+  }
+.product:hover{
+    border-radius: 5%;
+    background-color: #ffb243;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.product:focus{
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.author-name , .price {
+    display:block ;
+    margin-top: -20px;
+    font-size: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+
+*{
+    padding:2px ;
+    margin:2px ;
+}
+
+.sidebar {
+text-align: start;
+font-size: 12px;
+}
+
+
+
+ul{
+
+    border:none ;
+}
+
+.search-title{
+    font-size: 14px ;
+    text-align: start;
+}
+
+.dropdown {
+    width: 100%;
+}
+.dropdown-content{
+    height:auto;
+    text-align: center;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.product {
+    width: 100%;
+    font-size: 14px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    padding: 5px;
+}
+
+#hits ol{
+    width: 100%;
+}
+
+
+#hits li{
+    margin:0px ;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.ais-Hits-item{
+    padding: 0px ;
+    margin: 0px;
+}
+
+
+
+.arrow{
+    display: none;
+}
+
+img{
+    /* min-height: 20px;
+    max-height: 30px; */
+    height : 80px ;
+    width: 120px;
+}
+
+.book-name {
+    font-size: 13px ;
+    font-weight: bold;
+}
+
+.author-name , .price {
+    display:none  ;
+}
+
+
+
+}

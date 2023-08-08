@@ -31,14 +31,11 @@
 </head>
 <body>
         <div class="dropdown">
-            <div   class="dropbtn"  onclick="myFunction()">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-                    <path d="M21 21l-6 -6"></path>
-                </svg>
-            </div>
-            <div id="myDropdown"  class="dropdown-content"  >
+            <div   class="dropbtn fa fa-search"  onclick="myFunction()" aria-hidden="true">
+
+        </div>
+
+        <div id="myDropdown"  class="dropdown-content"  >
 
             <div id="searchBox">
 
@@ -49,14 +46,14 @@
                     <div class="row ">
 
                         <!-- Sidebar content -->
-                        <div class="col-md-4 col-sm-12 sidebar">
+                        <div class="col-md-3 col-sm-12 sidebar">
                             <p class="search-title">CATEGORIES</p>
                             <div class="filter-widget" id="categories"></div>
                         </div>
 
                         <!-- Products content -->
                         
-                        <div class="col-md-8">
+                        <div class="col-md-9 col-sm-12">
                             <p class="search-title">PRODUCTS</p>
                             
                             <div class="row">

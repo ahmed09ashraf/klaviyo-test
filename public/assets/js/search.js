@@ -57,13 +57,13 @@ search.addWidgets([
         <div class="col-md-3 col-sm-6">
         <div id="product" class="product-card product">
             <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="${data.image}" alt="Demon Copperhead">
-                <h6 class="book-name">
+                <p class="book-name">
                     ${instantsearch.highlight({
                         attribute : "title" , 
                         hit : data
                             })
                         }
-                </h6>
+                </p>
                 <i class="author-name">
                     ${instantsearch.highlight({
                         attribute : "author" , 

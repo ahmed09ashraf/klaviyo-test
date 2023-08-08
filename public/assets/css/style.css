@@ -7,11 +7,11 @@
     background-color: #dddddd;
     color: grey;
     padding: 10px;
-    width: 70px;
-    font-size: 16px;
-    border: none;
     cursor:pointer ;
+    align-items: center;
+    border-radius: 10%;
     margin-bottom: 10px;
+
 }
 
 /* Dropdown button on hover & focus */
@@ -19,46 +19,9 @@
     background-color: #e2e8f0 ;
 }
 
-/* ----Search Box---- */
-#searchBox{
-    position: relative;
-}
 
 
-.ais-SearchBox-input{
-    position: relative;
-    box-sizing: border-box;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none; 
-    border: 1px solid #ffb243; 
-    background-color: rgba(255, 170, 50, 0.2);
-    width: 100%;
-}
-
-.ais-SearchBox-reset{
-    position: absolute;
-    top: 50%;
-    right: 30px; 
-    transform: translateY(-50%);
-}
-
-.ais-SearchBox-reset:focus{
-    background-color: red;
-}
-
-/* The search field when it gets focus/clicked on */
-.ais-SearchBox-input:focus {outline: 1.5px solid #ffb243;}
-
-.ais-SearchBox{
-    padding:-10px ;
-}
- 
-
-/* The container <div> - needed to position the dropdown content */
-mark{
-    background: #ffb243;
-}
+/* Search Pop Up*/
 .dropdown {
     position: relative;
     display: inline-block;
@@ -81,6 +44,9 @@ mark{
     overflow:hidden;
 }
 
+mark{
+    background: #ffb243;
+}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
@@ -92,22 +58,65 @@ mark{
 }
 
 
+
+/* ----Search Box---- */
+#searchBox{
+    position: relative;
+}
+
+.ais-SearchBox-input{
+    position: relative;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 14px 20px 14px 45px; 
+    border: none;
+    border: 1px solid #ffb243; 
+    background-color: #f2f2f2; 
+    width: 100%;
+    border-radius: 20px; 
+    transition: border-color 0.3s, background-color 0.3s; 
+}
+
+
+.ais-SearchBox-input:focus {
+      outline: 1.5px solid #ffb243;
+      border-color: #ffb243;
+      background-color: #fff; 
+  }
+
+
+.ais-SearchBox-reset{
+    position: absolute;
+    top: 50%;
+    right: 30px; 
+    transform: translateY(-50%);
+}
+
+.ais-SearchBox-reset:focus{
+    background-color: red;
+}
+
+
+
+.ais-SearchBox{
+    padding:-10px ;
+}
+ 
+
+
+/* ----Categories---- */
+
 .search-title {
     font-size: 18px;
     font-weight: bold;
     border-bottom: 0.8px solid #ffb243;
 }
 
-
-
-
 #categories {
-border-right: #ffb243 2px solid;
-width: 100%;
-
-margin-left: -50px;
-padding: 0px;
-overflow:hidden;
+    border-right: #ffb243 2px solid;
+    margin-left: -50px;
+    padding: 0px;
+    overflow:hidden;
 
 }
 
@@ -125,6 +134,7 @@ overflow:hidden;
     margin-bottom: 10px;
 
 }
+
 .ais-Menu-item a{ 
     color: black;
     font-size: 14px;
@@ -139,6 +149,7 @@ overflow:hidden;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    width: 100%;
 }
 
 
@@ -152,7 +163,8 @@ overflow:hidden;
 #hits ul{
     border-right: #ffb243 2px solid;
     width: 100%;
-    margin-right: 10px;
+    right: 30px;
+    margin-right: 30px;
     margin-top: -10px;
     overflow: hidden;
 }
@@ -163,41 +175,43 @@ overflow:hidden;
     margin-top: 10px;
 
 }
-    
+
+
 
 .product{
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
-    margin: 0px;
+    margin-right: 10px;
 }
 
 .product-card {
-    width: 150px; 
-    height: 320px; 
+    width: 180px; 
+    height: 380px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden; 
   }
+
 .product:hover{
-    border-radius: 5%;
+    border-radius: 20px;
     background-color: #ffb243;
     cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.product:focus{
     outline: none;
     transform: scale(1.05);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .author-name , .price {
     display:block ;
     margin-top: -20px;
     font-size: 10px;
+}
+
+.book-name{
+    font-size: 12px;
+    font-weight: bold;
 }
 
 
@@ -243,7 +257,7 @@ ul{
     }
 
 .ais-Menu{
-    text-align: start;
+    text-align: center;
     padding: 0px;
     margin: 0px;
 
@@ -257,6 +271,7 @@ ul{
     align-items: center;
     margin: 0px;
     padding: 5px;
+    margin-bottom: 5px;
 }
 
 

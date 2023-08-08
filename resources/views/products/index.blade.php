@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/reset-min.css') }}">
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/instantsearch.css@7/themes/satellite-min.css"
+    /> -->
+
     <title>Algolia</title>
 
     <!-- Scripts -->
@@ -25,16 +30,6 @@
     
 </head>
 <body>
-<main>
-      <div class="left-column">
-      </div>
-
-        <!-- <div class="right-column" id="hits"></div> -->
-        <!-- <div id="pagination"></div> -->
-</main>
-
-
-<!-- <div id="test-widget"></div> -->
         <div class="dropdown">
             <div   class="dropbtn"  onclick="myFunction()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -45,47 +40,25 @@
             </div>
             <div id="myDropdown"  class="dropdown-content"  >
 
-            <div id="searchBox"></div>
-            <div id="autocomplete"></div>
+            <div id="searchBox">
+
+            </div>
+            <!-- <div id="autocomplete"></div> -->
 
                 <div class="container-fluid" >
                     <div class="row ">
 
                         <!-- Sidebar content -->
                         <div class="col-md-4 col-sm-12 sidebar">
-                        <p class="search-title">CATEGORIES</p>
-                        <div class="filter-widget" id="categories"></div>
-                            <ul>
-                                <li> <i class="fa fa-search"></i>First</li>
-                                <li><i class="fa fa-search"></i>Second</li>
-                                <li><i class="fa fa-search"></i>Third</li>
-                                <li><i class="fa fa-search"></i>Fourth</li>
-                                <li><i class="fa fa-search"></i>Fifth</li>
-
-                            </ul>
+                            <p class="search-title">CATEGORIES</p>
+                            <div class="filter-widget" id="categories"></div>
                         </div>
 
                         <!-- Products content -->
                         
                         <div class="col-md-8">
-                        <p class="search-title">PRODUCTS</p>
-                            <!-- <div class="arrow">
-                                    <i class="arrow-left">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M15 6l-6 6l6 6"></path>
-                                    </svg>
-                                    </i>
-
-                                    <i class="arrow-right">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M9 6l6 6l-6 6"></path>
-                                        </svg>
-                                    </i>
-                            </div> -->
-
-                   
+                            <p class="search-title">PRODUCTS</p>
+                            
                             <div class="row">
                                 <div id="hits"></div>
 
@@ -100,8 +73,9 @@
     </div>
 
 
-    <script src="{{ asset('assets/js/search.js') }}"></script>
+    <script type="module" src="{{ asset('assets/js/search.js') }}"></script>
     <!-- <script src="{{ mix('js/search.js') }}"></script> -->
-
-</body>
-</html>
+<script>function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+</script>

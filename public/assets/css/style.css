@@ -11,6 +11,7 @@
     font-size: 16px;
     border: none;
     cursor:pointer ;
+    margin-bottom: 10px;
 }
 
 /* Dropdown button on hover & focus */
@@ -19,37 +20,54 @@
 }
 
 /* ----Search Box---- */
+#searchBox{
+    position: relative;
+}
+
 
 .ais-SearchBox-input{
+    position: relative;
     box-sizing: border-box;
     font-size: 16px;
     padding: 14px 20px 12px 45px;
-    margin-bottom :-30px ;
-    border: none;
-    border-bottom: 1px solid #ffb243;
-    width:100%;
+    border: none; 
+    border: 1px solid #ffb243; 
+    background-color: rgba(255, 170, 50, 0.2);
+    width: 100%;
 }
 
+.ais-SearchBox-reset{
+    position: absolute;
+    top: 50%;
+    right: 30px; 
+    transform: translateY(-50%);
+}
+
+.ais-SearchBox-reset:focus{
+    background-color: red;
+}
 
 /* The search field when it gets focus/clicked on */
 .ais-SearchBox-input:focus {outline: 1.5px solid #ffb243;}
 
+.ais-SearchBox{
+    padding:-10px ;
+}
+ 
+
 /* The container <div> - needed to position the dropdown content */
+mark{
+    background: #ffb243;
+}
 .dropdown {
     position: relative;
     display: inline-block;
     width: 100%;
 }
-mark{
-    background: #ffb243;
-}
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    /* display: none; */
-    position: absolute;
+    position: relative;
     background-color: #f9f9f9;
-    height:100px;
-    width: 100%;
     border: 1px solid #ddd;
     z-index: 999;
     transform: translateY(-10px);
@@ -58,7 +76,6 @@ mark{
     top: 100%;
     left: 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    padding: 20px;
     box-sizing: border-box;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
     overflow:hidden;
@@ -81,21 +98,42 @@ mark{
     border-bottom: 0.8px solid #ffb243;
 }
 
-ul{
+
+
+
+#categories {
 border-right: #ffb243 2px solid;
 width: 100%;
-margin-right: 10px;
-margin-top: -10px;
-overflow: hidden;
+
+margin-left: -50px;
+padding: 0px;
+overflow:hidden;
+
 }
 
-.ais-Hits{
+#categories li:hover{ 
+    background-color: #ffb243;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.ais-Menu{
     text-align: center;
-    padding: 0px;
-    margin: -5px;
+    margin: -20px;
     margin-top: 10px;
+    margin-bottom: 10px;
 
 }
+.ais-Menu-item a{ 
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+
+
 /* ----Products---- */
 #hits {
     display: flex;
@@ -103,12 +141,29 @@ overflow: hidden;
     flex-direction: row;
 }
 
+
 #hits li {
     display: inline-block;
     margin: -20px;
     margin-bottom: 40px;
     margin-top: 10px;
 }
+
+#hits ul{
+    border-right: #ffb243 2px solid;
+    width: 100%;
+    margin-right: 10px;
+    margin-top: -10px;
+    overflow: hidden;
+}
+.ais-Hits{
+    text-align: center;
+    padding: 0px;
+    margin: -5px;
+    margin-top: 10px;
+
+}
+    
 
 .product{
     transition: transform 0.2s, box-shadow 0.2s;
@@ -119,11 +174,11 @@ overflow: hidden;
 }
 
 .product-card {
-    width: 180px; /* Set the desired width */
-    height: 320px; /* Set the desired height */
+    width: 150px; 
+    height: 320px; 
     border: 1px solid #ccc;
     border-radius: 4px;
-    overflow: hidden; /* Hide any content that exceeds the card size */
+    overflow: hidden; 
   }
 .product:hover{
     border-radius: 5%;
@@ -182,6 +237,18 @@ ul{
     margin: 0px;
 }
 
+#categories {
+    border: none;
+    margin-left: -10px;
+    }
+
+.ais-Menu{
+    text-align: start;
+    padding: 0px;
+    margin: 0px;
+
+}
+
 .product {
     width: 100%;
     font-size: 14px ;
@@ -190,6 +257,13 @@ ul{
     align-items: center;
     margin: 0px;
     padding: 5px;
+}
+
+
+
+.ais-Hits-item{
+    padding: 0px ;
+    margin: 0px;
 }
 
 #hits ol{
@@ -204,10 +278,6 @@ ul{
     text-align: center;
 }
 
-.ais-Hits-item{
-    padding: 0px ;
-    margin: 0px;
-}
 
 
 
@@ -216,8 +286,6 @@ ul{
 }
 
 img{
-    /* min-height: 20px;
-    max-height: 30px; */
     height : 80px ;
     width: 120px;
 }

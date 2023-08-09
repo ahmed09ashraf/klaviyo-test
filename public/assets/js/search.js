@@ -78,7 +78,7 @@ search.addWidgets([
     </div>
 
             `
-            , empty:"No Resultssss" ,
+            , empty:"No results found." ,
     
                 },
             })
@@ -88,6 +88,8 @@ search.start();
 
 console.log(search);
 
+
+// ----Auto Complete---- //
 
 const { setQuery } = autocomplete({
     container: '#autocomplete',

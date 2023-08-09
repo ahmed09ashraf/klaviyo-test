@@ -1,0 +1,323 @@
+*{
+    padding: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #dddddd;
+    color: grey;
+    padding: 10px;
+    cursor:pointer ;
+    align-items: center;
+    border-radius: 10%;
+    margin-bottom: 10px;
+
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #e2e8f0 ;
+}
+
+
+
+/* Search Pop Up*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    position: relative;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    z-index: 999;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    overflow:hidden;
+}
+.dropdown-content.search-has-content {
+    height: 1000px; 
+  }
+
+mark{
+    background: #ffb243;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    opacity: 1;
+    visibility: visible;
+    height:680px ;
+    transform: translateY(0);
+    transition-delay: 0s, 0s, 0s;
+}
+
+
+
+/* ----Search Box---- */
+#searchBox{
+    position: relative;
+}
+
+.ais-SearchBox-input{
+    position: relative;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 14px 20px 14px 45px; 
+    border: none;
+    border: 1px solid #ffb243; 
+    background-color: #f2f2f2; 
+    width: 100%;
+    border-radius: 20px; 
+    transition: border-color 0.3s, background-color 0.3s; 
+}
+
+
+.ais-SearchBox-input:focus {
+      outline: 1.5px solid #ffb243;
+      border-color: #ffb243;
+      background-color: #fff; 
+  }
+
+
+.ais-SearchBox-reset{
+    position: absolute;
+    top: 50%;
+    right: 30px; 
+    transform: translateY(-50%);
+}
+
+.ais-SearchBox-reset:focus{
+    background-color: red;
+}
+
+
+
+.ais-SearchBox{
+    padding:-10px ;
+}
+ 
+
+
+/* ----Categories---- */
+
+.search-title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 0.8px solid #ffb243;
+}
+
+#categories {
+    border-right: #ffb243 2px solid;
+    margin-left: -50px;
+    padding: 0px;
+    overflow:hidden;
+
+}
+
+#categories li:hover{ 
+    background-color: #ffb243;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.ais-Menu{
+    text-align: center;
+    margin: -20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.ais-Menu-item a{ 
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+
+
+/* ----Products---- */
+#hits {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+#hits li {
+    display: inline-block;
+    margin: -20px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+#hits ul{
+    border-right: #ffb243 2px solid;
+    width: 100%;
+    right: 30px;
+    margin-right: 30px;
+    margin-top: -10px;
+    overflow: hidden;
+}
+.ais-Hits{
+    text-align: center;
+    padding: 0px;
+    margin: -5px;
+    margin-top: 10px;
+
+}
+
+
+
+.product{
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.product-card {
+    width: 180px; 
+    height: 380px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden; 
+  }
+
+.product:hover{
+    border-radius: 20px;
+    background-color: #ffb243;
+    cursor: pointer;
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.author-name , .price {
+    display:block ;
+    margin-top: -20px;
+    font-size: 10px;
+}
+
+.book-name{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 768px) {
+
+*{
+    padding:2px ;
+    margin:2px ;
+}
+
+.sidebar {
+text-align: start;
+font-size: 12px;
+}
+
+
+
+ul{
+
+    border:none ;
+}
+
+.search-title{
+    font-size: 14px ;
+    text-align: start;
+}
+
+.dropdown {
+    width: 100%;
+}
+.dropdown-content{
+    height:auto;
+    text-align: center;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#categories {
+    border: none;
+    margin-left: -10px;
+    }
+
+.ais-Menu{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.product {
+    width: 100%;
+    font-size: 14px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+.ais-Hits-item{
+    padding: 0px ;
+    margin: 0px;
+}
+
+#hits ol{
+    width: 100%;
+}
+
+
+#hits li{
+    margin:0px ;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+.arrow{
+    display: none;
+}
+
+img{
+    height : 80px ;
+    width: 120px;
+}
+
+.book-name {
+    font-size: 13px ;
+    font-weight: bold;
+}
+
+.author-name , .price {
+    display:none  ;
+}
+
+
+
+}
+

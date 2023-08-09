@@ -21,8 +21,11 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "@algolia/autocomplete-js": "^1.10.0",
+        "@algolia/autocomplete-plugin-recent-searches": "^1.10.0",
+        "@algolia/autocomplete-theme-classic": "^1.10.0",
         "algoliasearch": "^4.19.1",
         "bootstrap": "^4.6.2",
-        "instantsearch.js": "^4.56.8"
+        "instantsearch.js": "^4.56.9"
     }
 }

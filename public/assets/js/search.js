@@ -1,17 +1,17 @@
-// import algoliasearch from 'algoliasearch/lite';
-// import instantsearch from 'instantsearch.js';
-// import historyRouter from 'instantsearch.js/es/lib/routers/history';
-// import {
-//   searchBox,
-//   hierarchicalMenu,
-//   hits,
-//   pagination,
-// } from 'instantsearch.js/es/widgets';
-// import { autocomplete } from '@algolia/autocomplete-js';
-// import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
-// import { connectSearchBox } from 'instantsearch.js/es/connectors';
+import algoliasearch from 'algoliasearch/lite';
+import instantsearch from 'instantsearch.js';
+import historyRouter from 'instantsearch.js/es/lib/routers/history';
+import {
+  searchBox,
+  hierarchicalMenu,
+  hits,
+  pagination,
+} from 'instantsearch.js/es/widgets';
+import { autocomplete } from '@algolia/autocomplete-js';
+import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
+import { connectSearchBox } from 'instantsearch.js/es/connectors';
 
-// import '@algolia/autocomplete-theme-classic';
+import '@algolia/autocomplete-theme-classic';
 
 
 
@@ -81,7 +81,19 @@ search.addWidgets([
             , empty:"No results found." ,
     
                 },
-            })
+            }),
+
+    // instantsearch.widgets.numericMenu({
+    //   // ...
+    //   container: '#numeric-menu',
+    //   attribute: 'price',
+    //   item : data => `
+    //           <b class="price">
+    //               ${data.price} $
+    //           </b>
+    //       `
+      
+    // })
 ]) ;
 
 search.start();

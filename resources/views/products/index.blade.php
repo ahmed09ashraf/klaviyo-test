@@ -37,10 +37,10 @@
 
         <div id="myDropdown"  class="dropdown-content"  >
 
-            <div id="searchBox">
-
-            </div>
+            <div id="searchBox"></div>
             <!-- <div id="autocomplete"></div> -->
+
+            <!-- <div id="numeric-menu">Price</div> -->
 
                 <div class="container-fluid" >
                     <div class="row ">
@@ -58,21 +58,34 @@
                             
                             <div class="row">
                                 <div id="hits"></div>
-
-                                </div>
                             </div>
-                        </div>
+                        </div>  
 
                     </div>
+
                 </div>
-            </div>
         </div>
-    </div>
 
-
-    <script type="module" src="{{ asset('assets/js/search.js') }}"></script>
+    <script src="{{ asset('assets/js/search.js') }}"></script>
     <!-- <script src="{{ mix('js/search.js') }}"></script> -->
-<script>function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+<script>
+
+function myFunction() {
+    const dropdownContent = document.getElementById("myDropdown");
+    dropdownContent.classList.toggle("show");
+
+    const searchBox = document.getElementById("searchBox");
+    const searchInput = searchBox.querySelector(".ais-SearchBox-input");
+
+
+    if (searchInput.value.trim() !== "") {
+    dropdownContent.classList.add("search-has-content");
+  } else {
+    dropdownContent.classList.remove("search-has-content");
+  }
 }
+
+
+
+
 </script>

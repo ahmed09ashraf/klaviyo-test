@@ -10,6 +10,8 @@ import { connectSearchBox } from 'instantsearch.js/es/connectors';
 import '@algolia/autocomplete-theme-classic';
 
 
+
+
 // initiliaze instantsearch
 const searchClient = algoliasearch(
 "UAYG2IU3S4",

@@ -29,5 +29,3 @@ Route::get('/create-catalog', [KlaviyoCatalogController::class, 'createCatalog']
 Route::get('/create-list', [KlaviyoController::class, 'createList']);
 
 Route::get('/products',[ProductController::class,'index'])->name('products.index') ;
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');

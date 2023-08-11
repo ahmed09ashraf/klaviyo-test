@@ -30,15 +30,9 @@ const search = instantsearch({
     searchClient
 });
 
-
-search.addWidgets([
-    searchBox({
-        container: '#searchBox',
-        placeholder: 'Search for products',
-        showSubmit: false,
-    }),
-
-     menu({
+  search.addWidgets([
+    
+menu({
         container: '#categories',
         attribute: 'categories',
         limit: 6,
@@ -46,7 +40,7 @@ search.addWidgets([
     }),
 
 
-   hits({
+hits({
         container: '#hits',
         templates: {
         item : data => `
@@ -54,18 +48,10 @@ search.addWidgets([
         <div id="product" class="product-card product">
             <img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="${data.image}" alt="Demon Copperhead">
                 <p class="book-name">
-                    ${instantsearch.highlight({
-                        attribute : "title" , 
-                        hit : data
-                            })
-                        }
+                   ${data.title}
                 </p>
                 <i class="author-name">
-                    ${instantsearch.highlight({
-                        attribute : "author" , 
-                        hit : data
-                            })
-                        }
+                  ${data.author}
                 </i>
                 <b class="price">
                     ${data.price} $
@@ -79,21 +65,27 @@ search.addWidgets([
                 },
       }),
 
-    // instantsearch.widgets.numericMenu({
-    //   // ...
-    //   container: '#numeric-menu',
-    //   attribute: 'price',
-    //   item : data => `
-    //           <b class="price">
-    //               ${data.price} $
-    //           </b>
-    //       `
-      
-    // })
+
+
+      // hits({
+      //   container: '#hits',
+      //   templates: {
+      //     item(hit, { html, components }) {
+      //       return html`
+      //         <div>
+      //           ${components({ attribute: `<img class="img-fluid" style="min-height: 130px;max-height: 200px;" src="${components.image}" alt="Demon Copperhead">
+      //           `, hit })}
+      //           ${components.Highlight({ attribute: 'title', hit })}
+      //           ${components.Highlight({ attribute: 'author', hit })}
+      //           ${components({ attribute: 'price', hit })}
+      //         </div>
+      //       `;
+      //     },
+      //   },
+      // }),
 ]) ;
 
 search.start();
-
 // console.log(search);
 
 // ----Auto Complete---- //
@@ -149,3 +141,100 @@ const { setQuery } = autocomplete({
   });
 
 
+
+// Build URLs that InstantSearch understands.
+function getInstantSearchUrl(indexUiState) {
+  return search.createURL({ [INSTANT_SEARCH_INDEX_NAME]: indexUiState });
+}
+
+// Detect when an event is modified with a special key to let the browser
+// trigger its default behavior.
+function isModifierEvent(event) {
+  const isMiddleClick = event.button === 1;
+
+  return (
+    isMiddleClick ||
+    event.altKey ||
+    event.ctrlKey ||
+    event.metaKey ||
+    event.shiftKey
+  );
+}
+
+function onSelect({ setIsOpen, setQuery, event, query }) {
+  // You want to trigger the default browser behavior if the event is modified.
+  if (isModifierEvent(event)) {
+    return;
+  }
+
+  setQuery(query);
+  setIsOpen(false);
+  setInstantSearchUiState({ query });
+}
+
+function getItemUrl({ query }) {
+  return getInstantSearchUrl({ query });
+}
+
+function createItemWrapperTemplate({ children, query, html }) {
+  const uiState = { query };
+
+  return html`<a
+    class="aa-ItemLink"
+    href="${getInstantSearchUrl(uiState)}"
+    onClick="${(event) => {
+      if (!isModifierEvent(event)) {
+        // Bypass the original link behavior if there's no event modifier
+        // to set the InstantSearch UI state without reloading the page.
+        event.preventDefault();
+      }
+    }}"
+  >
+    ${children}
+  </a>`;
+}
+
+const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
+  key: 'instantsearch',
+  limit: 3,
+  transformSource({ source }) {
+    return {
+      ...source,
+      getItemUrl({ item }) {
+        return getItemUrl({
+          query: item.label,
+        });
+      },
+      onSelect({ setIsOpen, setQuery, item, event }) {
+        onSelect({
+          setQuery,
+          setIsOpen,
+          event,
+          query: item.label,
+        });
+      },
+      // Update the default `item` template to wrap it with a link
+      // and plug it to the InstantSearch router.
+      templates: {
+        ...source.templates,
+        item(params) {
+          const { children } = source.templates.item(params).props;
+
+          return createItemWrapperTemplate({
+            query: params.item.label,
+            children,
+            html: params.html,
+          });
+        },
+      },
+    };
+  },
+});
+
+const { setQuery } = autocomplete({
+  // You want recent searches to appear with an empty query.
+  openOnFocus: true,
+  // Add the recent searches plugin.
+  plugins: [recentSearchesPlugin],
+  // ...
+});

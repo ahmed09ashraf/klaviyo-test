@@ -11,10 +11,10 @@
 
         <div id="myDropdown"  class="dropdown-content"  >
 
-            <div id="searchBox"></div>
-             <div id="autocomplete"></div> 
-
-            <!-- <div id="numeric-menu">Price</div> -->
+        <header class="header">
+            <div id="autocomplete"></div>
+        </header>
+            <div id="searchBox"></div>    
 
                 <div class="container-fluid" >
                     <div class="row ">

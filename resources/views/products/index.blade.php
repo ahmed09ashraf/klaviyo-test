@@ -14,7 +14,7 @@
         <header class="header">
             <div id="autocomplete"></div>
         </header>
-            <div id="searchBox"></div>    
+            <!-- <div id="searchBox"></div>     -->
 
                 <div class="container-fluid" >
                     <div class="row ">

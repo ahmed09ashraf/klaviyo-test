@@ -11,11 +11,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/reset-min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('/css/satellite-min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/instantsearch.css@7/themes/satellite-min.css"
-    />
+    {{-- <link rel="stylesheet" href="https://unpkg.com/instantsearch.css@7/themes/satellite-min.css"/> --}}
 
     <title>@yield('title')</title>
 </head>

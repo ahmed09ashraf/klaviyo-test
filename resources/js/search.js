@@ -6,12 +6,9 @@ import searchInsights from 'search-insights';
 import historyRouter from 'instantsearch.js/es/lib/routers/history';
 import { createQuerySuggestionsPlugin } from '@algolia/autocomplete-plugin-query-suggestions';
 // import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
-
 import { connectSearchBox } from 'instantsearch.js/es/connectors';
 
 import '@algolia/autocomplete-theme-classic';
-
-
 
 
 // initiliaze instantsearch
@@ -49,7 +46,7 @@ hits({
         templates: {
           item(item, { html, components }) {
             return html`
-            <div class="col-md-3 col-sm-6">
+            <>
               <div id="product" class="product-card product">
               <p>
                 <img class="img-fluid" style="min-height: 130px; max-height: 200px;" src="${item.image}" alt="${item.title}">
@@ -64,7 +61,7 @@ hits({
                   ${item.price}
                 </b>
               </div>
-            </div>
+            </>
             `;
           },
         },
@@ -100,7 +97,6 @@ hits({
           templates: {
             item(params) {
               const { item, html } = params;
-    
               return html`<a class="aa-ItemLink" href="/search?q=${item.query}">
                 ${source.templates.item(params).props.children}
               </a>`;
@@ -108,10 +104,6 @@ hits({
           },
         };
       },
-
-
-
-
 
     });
 
@@ -151,7 +143,6 @@ hits({
               item({item,  html, components }){
                 return html`<div class="aa-ItemWrapper">
                   <div class="aa-ItemContent">
-                    
                     <div class="aa-ItemContentBody">
                       <div class="aa-ItemContentTitle">
                         ${components.Highlight({

@@ -3,7 +3,7 @@
 @section('title')Algolia @endsection
 
 @section('content')
-
+<main class="py-4">
         <div class="dropdown">
             <div   class="dropbtn fa fa-search"  onclick="dropDown()" aria-hidden="true">
         </div>
@@ -33,5 +33,5 @@
                 </div>
             </header>
         </div>
- 
+    </main> 
 @endsection

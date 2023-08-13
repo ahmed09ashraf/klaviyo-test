@@ -41,33 +41,36 @@ menu({
     }),
 
 
-hits({
-        container: '#hits',
-        templates: {
-          item(item, { html, components }) {
-            return html`
-            <>
-              <div id="product" class="product-card product">
-              <p>
-                <img class="img-fluid" style="min-height: 130px; max-height: 200px;" src="${item.image}" alt="${item.title}">
-              </p>
-                <div class="book-name">
-                  ${components.Highlight({ hit:item, attribute: 'title' })}
-                </div>
-                <i class="author-name">
-                  ${components.Highlight({ hit:item, attribute: 'author' })}
-                </i>
-                 <b class="price">
-                  ${item.price}
-                </b>
-              </div>
-            </>
-            `;
-          },
-        },
-      }),
 
-    ]) ;
+    hits({
+      container: '#hits',
+      templates: {
+        item(item, { html, components }) {
+          return html`
+          <div class="col-md-3 col-sm-6" >
+            <div id="product" class="product-card product">
+            <div class="hit-image" >
+            <img class="img-fluid" style="min-height: 130px; max-height: 200px;" src="${item.image}" alt="${item.title}">
+          </div>
+
+     
+              <div class="book-name">
+              ${item.title}
+              </div>
+              <i class="author-name">
+              ${item.author}
+              </i>
+               <b class="price">
+                ${item.price} $
+              </b>
+            </div>
+          </>
+          `;
+        },
+      },
+    }),
+
+  ]) ;
     
     search.start();
 

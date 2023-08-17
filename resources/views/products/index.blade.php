@@ -4,34 +4,36 @@
 
 @section('content')
 <main class="py-4">
-        <div class="dropdown">
-            <div   class="dropbtn fa fa-search"  onclick="dropDown()" aria-hidden="true">
-        </div>
 
-        <div id="myDropdown"  class="dropdown-content"  >
+
+
             <header class="header">
                 <div id="autocomplete"></div>
             <!-- <div id="searchBox"></div>   -->
                 <div class="container-fluid" >
                     <div class="row ">
-                        <!-- Sidebar content -->
-                        <div class="col-md-3 col-sm-12 sidebar">
-                            <p class="search-title">CATEGORIES</p>
-                            <div class="filter-widget" id="categories"></div>
-                        </div>
-
+                       
+                        <div id="pagination"></div>
                         <!-- Products content -->
-                        <div class="col-md-9 col-sm-12">
-                            <p class="search-title">PRODUCTS</p>
+                        <div class=" col-sm-12">
+                            
                             
                             <div class="row">
                                 <div id="hits"></div>
                             </div>
-                        </div>  
+                            <div class="col-md-3 col-sm-12 sidebar">
+                               
+                                <div class="filter-widget" id="categories"  style="visibility: hidden;"></div>
+                            </div>
+                            <div class="filter-widget" id="rating-menu"  style="visibility: hidden;"></div>
 
+                        </div>  
+                        <div class="filter-widget" id="format-select" style="visibility: hidden;"></div>
+                        <div class="filter-widget" id="type" style="visibility: hidden;"></div>
+                        <div class="filter-widget" id="rating" style="visibility: hidden;"></div>
+                        
                     </div>
                 </div>
             </header>
-        </div>
     </main> 
 @endsection

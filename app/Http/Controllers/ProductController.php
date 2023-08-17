@@ -12,4 +12,8 @@ class ProductController extends Controller
         return view('products.index');
     }
 
+    public function search(){
+        return view('products.search') ;
+    }
+
 }

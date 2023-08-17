@@ -29,3 +29,4 @@ Route::get('/create-catalog', [KlaviyoCatalogController::class, 'createCatalog']
 Route::get('/create-list', [KlaviyoController::class, 'createList']);
 
 Route::get('/products',[ProductController::class,'index'])->name('products.index') ;
+Route::get('/products/search',[ProductController::class,'search'])->name('products.search') ;

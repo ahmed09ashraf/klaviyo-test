@@ -41,11 +41,7 @@ const redirectUrlPlugin = createRedirectUrlPlugin(
     transformResponse(response) {
       return response.myRedirectData?.url;
     },
-    templates: {
-      item({ html, state }) {
-        return html`<a className="myCustomClass">${state.query}</a>`;
-      },
-    },
+    
   }
 );
 
@@ -135,6 +131,10 @@ refinementList({
                             ${hit.title}
                         </div>
 
+                        <div >
+                        <a href="/products/search?author=${hit.author}">${hit.author}</a>
+                    </div>
+
                         <div class="price">
                         ${hit.price} $ 
                     </div>
@@ -167,10 +167,11 @@ function setInstantSearchUiState(indexUiState) {
 
 //   // Return the InstantSearch index UI state.
 function getInstantSearchUiState() {
-    const uiState = instantSearchRouter.read();
-  
-    return (uiState && uiState[indexName]) || {};
-  }
+  const uiState = instantSearchRouter.read();
+
+  return (uiState && uiState[indexName]) || {};
+}
+
   
   const searchPageState = getInstantSearchUiState();
   
@@ -260,9 +261,24 @@ function getInstantSearchUiState() {
 const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: 'instantsearch',
     limit: 6,
+    // getSearchParams({state}) {
+    //   return {
+    //     hitsPerPage: state.query ? 3 : 5
+    // };
+    // },
     transformSource({ source }) {
         return {
             ...source,
+
+          //   onSelect({item}) {
+          //     // Assuming the `setSearchState` function updates the search page state.
+          //     setSearchState({query: item.query});
+          // },
+
+            // getItemUrl({item}) {
+            //   return `/products/search?q=${item.query}`;
+
+            // },
        
 
         onSelect({ setIsOpen, setQuery, item, event }) {
@@ -293,17 +309,18 @@ const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
         },
             
         item(params) {
-          
-         const {item, html} = params;
+          const {item, html} = params;
                   const code = encodeURIComponent(`${indexName}[query]`);
                   return html`<a class="aa-ItemLink" href="/products/search?${code}=${item.label}">
                       ${source.templates.item(params).props.children}
                   </a>`;
         },
+
         },
       };
     },
   });
+
 
 
     const querySuggestionsPlugin = createQuerySuggestionsPlugin({
@@ -316,10 +333,9 @@ const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
         'hierarchicalCategories.lvl0',
       ],
     getSearchParams({state}) {
-        return recentSearchesPlugin.data.getAlgoliaSearchParams({
-          hitsPerPage: 6,
-        });
-        
+      return {
+        hitsPerPage: state.query ? 3 : 5
+    };
     },
     transformSource({source, setSearchState}) 
      {
@@ -327,19 +343,23 @@ const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
             ...source,
             sourceId: 'querySuggestionsPlugin',
 
+            onSelect({item}) {
+              // Assuming the `setSearchState` function updates the search page state.
+              setSearchState({query: item.query});
+          },
+
             getItemUrl({item}) {
-              return getItemUrl({
-                query: item.query,
-              });
+              return `/products/search?q=${item.query}`;
+
             },
-            onSelect({ setIsOpen, setQuery, event, item }) {
-              onSelect({
-                setQuery,
-                setIsOpen,
-                event,
-                query: item.query,
-              });
-            },
+            // onSelect({ setIsOpen, setQuery, event, item }) {
+            //   onSelect({
+            //     setQuery,
+            //     setIsOpen,
+            //     event,
+            //     query: item.query,
+            //   });
+            // },
 
             getItems(params) {
               // We don't display Query Suggestions when there's no query.
@@ -349,8 +369,9 @@ const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
       
               return source.getItems(params);
             },
+            
             templates: {
-              ...source.templates,
+          
 
                 header({html}) {
                     return html`
@@ -397,7 +418,6 @@ const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
                             hitsPerPage: 4,
                             attributesToSnippet: ['title:15', 'author:10'],
                             snippetEllipsisText: '…', query,
-                            ruleContexts: ['hello'], // triggers rules configured only with this context
                           },
                     }],
                     // You can now use `state.context.nbProducts`

@@ -22,6 +22,9 @@ export function ProductItem({html, hit, components}) {
                         <div class="aa-ItemContentTitle" >
                             ${hit.title}
                         </div>
+                        <div class="aa-ItemContentTitle" >
+                        <a href="">${hit.auther}</a>
+                    </div>
                     </div>
                 </div>
             </div>

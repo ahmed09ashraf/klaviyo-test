@@ -372,12 +372,7 @@ flex-direction: row;
   }
 
 .product:hover{
-    border-radius: 20px;
-    background-color: #ffb243;
-    cursor: pointer;
-    outline: none;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ text-decoration: none;
 }
 
 
